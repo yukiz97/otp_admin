@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://192.168.1.225:8443/ -->
+<html class="user_font_size_normal" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ha Noi Mail</title>
+	<link rel="stylesheet" type="text/css" href="./css/common,login,zhtml,skin.css?skin=harmony&v=170314030222">
+	<link rel="SHORTCUT ICON" href="./img/logo/favicon.ico">
+
+</head>
+<body>
+	<div class="LoginScreen">
+		<div class="center">
+			<div class="contentBox">
+				<h1><a href="http://www.zimbra.com/" id="bannerLink" target="_new" title="Ha Noi Mail"><span class="ScreenReaderOnly">Zimbra</span>
+					<span class="ImgLoginBanner"></span>
+				</a></h1>
+				<div id="ZLoginAppName">Web Client</div>
+				<form method="post" name="loginForm" action="http://192.168.1.201:8080/OTP_HANOI/process_logon" accept-charset="UTF-8">
+								<input type="hidden" name="loginOp" value="login">
+					<!-- config destination -->
+        			  <input id="destinationUrl" name="destinationUrl" type="hidden" value="https://192.168.1.225:8443" />
+        			  <input id="destinationUserNameParameterName" name="destinationUserNameParameterName" type="hidden" value="username" />
+        			  <input id="destinationPasswordParameterName" name="destinationPasswordParameterName" type="hidden" value="password" />
+        			  <input id="ldapAuthEnabled" name  = "ldapAuthEnabled" type = "hidden" value = "true" />
+					  <input id="backURL" name = "backURL" type = "hidden" value = "http://192.168.1.201:8080/OTP_HANOI/login/index.html" />
+					<table class="form">
+                        <tbody><tr>
+                                        <td><label for="username">Tên đăng nhập:</label></td>
+                                        <td><input id="username" class="zLoginField" name="username" type="text" value="" size="40" maxlength="1024" autocapitalize="off" autocorrect="off"></td>
+                                        </tr>
+                                        <tr>
+                                <td><label for="password">Mật khẩu:</label></td>
+                                <td><input id="password" autocomplete="off" class="zLoginField" name="password" type="password" value="" size="40" maxlength="1024"></td>
+                                </tr>
+                                <tr>
+                                <td>&nbsp;</td>
+                                <td class="submitTD">
+
+                                <input type="submit" class="ZLoginButton DwtButton" value="Đăng nhập">
+                                </td>
+                                </tr>
+                            <tr>
+                            <td colspan="2"><hr></td>
+                            </tr>
+                            <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                        </td>
+                        </tr>
+                        </tbody></table>
+                    </form>
+			</div>
+			<div class="decor1"></div>
+		</div>
+
+		<div class="Footer">
+			<div id="ZLoginNotice" class="legalNotice-small"><a target="_new" href="https://www.zimbra.com/">Zimbra</a> :: the leader in open source messaging and collaboration :: <a target="_new" href="https://blog.zimbra.com/">Blog</a> - <a target="_new" href="https://wiki.zimbra.com/">Wiki</a> - <a target="_new" href="https://www.zimbra.com/forums">Forums</a></div>
+			<div class="copyright">
+			Copyright © 2005-2017 Synacor, Inc. All rights reserved. "Zimbra" is a registered trademark of Synacor, Inc.</div>
+		</div>
+		<div class="decor2"></div>
+	</div>
+</body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://otp.tinhuybinhduong.vn/OTP/login/vptu.html -->
+<html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Văn bản liên thông</title>
+		<link rel="stylesheet" type="text/css" href="./vptu_files/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./vptu_files/ngn.css">
+		<!-- Them vao ngay 29/8/2018-->
+		<script src="./vptu_files/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		    $("#loginForm").submit(function(e){
+
+		        //begin
+		        var username = document.getElementById("username").value;
+		        var password = document.getElementById("password").value;
+		        var settings = {
+		          "async": true,
+		          "crossDomain": true,
+		          "url": "https://vanphong.tinhuybinhduong.vn/webtn/otp/login_otp.asmx/CheckUser",
+		          "method": "POST",
+		          "headers": {
+		            "Content-Type": "application/json",
+		          },
+		          "data" : "{TbUserName:\"" +username + "\",Tbpassword:\""+password+ "\"}"
+		        }
+		        $.ajax(settings)
+		        .done(function (response) {
+		          console.log(response);
+		          if(response.d === "True"){
+		            document.getElementById("loginForm").submit();
+		          }else{
+		            document.getElementById("result").innerHTML = "Tài khoản hoặc mật khẩu không đúng";
+		          }
+		        })
+		        .fail(function (err){
+		          console.log(err.statusText);
+		          document.getElementById("result").innerHTML= "Không thể kết nối đến máy chủ";
+		        });
+						e.preventDefault();
+		        //end
+
+		    });
+		});
+		</script>
+		<!-- Ket thuc them vao ngay 29/8/2018 -->
+	</head>
+	<body style="">
+		<div class="container">
+			<div class="wrapper">
+				<div class="form-signin">
+				<form action="https://otp.tinhuybinhduong.vn/OTP/process_logon" method="POST" name="Login_Form" id="loginForm">
+					<div align="center"><img src="./vptu_files/logo_dang.png" class="img_responsive"></div>
+					<h3 class="form-signin-heading">ĐĂNG NHẬP HỆ THỐNG</h3>
+					  <hr class="colorgraph"><br>
+
+					  <input type="text" class="form-control" name="username" id="username" placeholder="Tên người dùng" required="" autofocus="">
+					  <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu" required="">
+						<!-- bo phan nay
+					  <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" >Đăng nhập</button>
+					  <div class="rightAlign">
+					    	<a href="https://otp.tinhuybinhduong.vn/OTP/cpanel">Cài đặt OTP</a>
+					  </div>
+						-->
+					  <!-- get location -->
+					  <input id="longitude" name="longitude" type="hidden" value="106.723027">
+        		<input id="latitude" name="latitude" type="hidden" value="10.8167654">
+						<!-- Thong tin can thiet cho otp -->
+						<input id="destinationUrl" name="destinationUrl" type="hidden" value="http://vanphong.tinhuybinhduong.vn/otp/otp_login.aspx">
+						<input id="destinationUserNameParameterName" name="destinationUserNameParameterName" type="hidden" value="TbUserName">
+						<input id="destinationPasswordParameterName" name="destinationPasswordParameterName" type="hidden" value="Tbpassword">
+						<input id="ldapAuthEnabled" name="ldapAuthEnabled" type="hidden" value="false">
+						<input id="backURL" name="backURL" type="hidden" value="https://otp.tinhuybinhduong.vn/login/vptu.html">
+						<!--them vao ngay 28/8/2018 -->
+						<button class="btn btn-lg btn-primary btn-block" name="login" id="login" type="submit" value="Login">Đăng nhập</button>
+				</form>
+				<div id="result" style="color:red;">
+			</div>
+		</div>
+		<script>
+			if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition,showError);
+		    } else {
+		    	document.getElementById("longitude").value="0";
+		    	document.getElementById("latitude").value="0"
+
+		    }
+
+			function showPosition(position){
+		    	document.getElementById("longitude").value=position.coords.longitude;
+		    	document.getElementById("latitude").value=position.coords.latitude;
+
+			}
+	    function showError(error) {
+	    	document.getElementById("longitude").value="0";
+	    	document.getElementById("latitude").value="0"
+
+	    }
+	</script>
+
+
+
+</div></div></body></html>

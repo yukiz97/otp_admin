@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>OTP Sign In</title>
+
+</head>
+	<body>
+		<div class = "container">
+			<div class="wrapper">
+				<form action="http://localhost:8080/otp/process_logon" method="POST" name="Login_Form" class="form-signin"> 
+					<!--  <div><img src="images/owa_text_blue1.png" class="img_responsive" width="100%" /></div>-->
+				    <!-- <h3 class="form-signin-heading">Xin chào bạn!</h3> -->
+					  <hr class="colorgraph"><br>
+					  
+					  <input type="text" class="form-control" name="username" placeholder="Tên người dùng" required="" autofocus="" />
+					  <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required=""/>     		  
+					 
+					  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Đăng nhập</button>
+					  <div class="rightAlign">
+					    	<a href="../cpanel">Cài đặt OTP</a>
+					  </div>
+					  
+					  <!-- get location -->
+					  <input id="longitude" name="longitude" type="hidden"  />
+        			  <input id="latitude" name="latitude" type="hidden"/>
+        			  
+        			  <!-- config destination --> 
+        			  <input id="destinationUrl" name="destinationUrl" type="hidden" value="http://localhost:8080" />
+        			  <input id="destinationUserNameParameterName" name="destinationUserNameParameterName" type="hidden" value="parameterAutoLoginLogin" />
+        			  <input id="destinationPasswordParameterName" name="destinationPasswordParameterName" type="hidden" value="parameterAutoLoginPassword" />
+        			  <input id="ldapAuthEnabled" name  = "ldapAuthEnabled" type = "hidden" value = "false" />
+					  <input id="backURL" name = "backURL" type = "hidden" value = "http://localhost:8080" />
+        			   			
+				</form>	
+				<div align="center">
+					
+					
+				</div>		
+			</div>
+		</div>
+		<script>
+			if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition,showError);
+		    } else { 
+		    	document.getElementById("longitude").value="0";
+		    	document.getElementById("latitude").value="0"
+		       	
+		    }
+		
+			function showPosition(position){
+		    	document.getElementById("longitude").value=position.coords.longitude;
+		    	document.getElementById("latitude").value=position.coords.latitude;
+		 	      		    	
+			}
+		    function showError(error) {
+		    	document.getElementById("longitude").value="0";
+		    	document.getElementById("latitude").value="0"
+		
+		    }
+	    	
+			
+		    
+		    
+	   </script>
+	</body>
+</html>

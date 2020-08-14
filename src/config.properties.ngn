@@ -1,0 +1,47 @@
+#OTP configuration
+#Tue Nov 24 15:23:52 ICT 2015
+
+#nginx setting
+nginx.default.port = 110
+nginx.server_ip = 192.168.1.225
+nginx.HTTP_AUTH_USER = Auth-User
+nginx.HTTP_AUTH_PASS = Auth-Pass
+nginx.HTTP_AUTH_PROTOCOL = Auth-Protocol
+
+#ldap setting
+ldap.principal=uid=admin,ou=people,dc=mailz,dc=ngn,dc=com,dc=vn
+ldap.credential=P@ssw0rd
+ldap.base=ou=people,dc=mailz,dc=ngn,dc=com,dc=vn
+ldap.url= ldap://192.168.1.225:389
+ldap.server=abc
+#ldap.auth.enabled =false
+
+session.timeout=1
+
+#jdbc setting
+jdbc.default.username=otpuser
+jdbc.default.password=P@ssw0rd
+jdbc.default.server.url=jdbc:mysql://localhost:3306/otpdb
+jdbc.default.driverClassName=com.mysql.jdbc.Driver
+
+#mail setting
+mail.smtp.host=192.168.1.18
+mail.smtp.port=25
+mail.smtp.userid=security
+mail.smtp.password=P@ssw0rd
+mail.smtp.ssl=false
+mail.smtp.tsl=false
+mail.smtp.debug=true
+mail.smtp.domain=ngn.com.vn
+mail.subject=Thông báo đăng nhập mới
+sleep=15000
+
+#admin setting
+admin.privatekey=1111111111111111
+
+#phone setting
+phone.enable = true
+
+#sms setting
+sms.enable = true
+sms.url = 
